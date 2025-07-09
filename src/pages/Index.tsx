@@ -29,13 +29,11 @@ const Index = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <motion.img 
+            <img 
               src="/assets/logo.png" 
               alt="LiteFold Logo" 
               style={{ width: '80px', height: '80px', objectFit: 'contain' }} 
               className="md:w-[120px] md:h-[120px] glow-primary"
-              animate={{ rotate: [0, 5, 0, -5, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             />
             <h1 className="font-instrument text-3xl md:text-5xl font-normal gradient-text">
               LiteFold
