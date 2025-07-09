@@ -8,58 +8,58 @@
 
 @layer base {
   :root {
-    /* Glass UI Background */
-    --background: 220 30% 5%;
-    --foreground: 220 20% 98%;
+    /* White Background Theme */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
 
     /* Glass Cards */
-    --card: 220 25% 8%;
-    --card-foreground: 220 15% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
 
-    --popover: 220 25% 8%;
-    --popover-foreground: 220 15% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
 
-    /* Protein Engineering Primary Colors */
-    --primary: 195 100% 65%;
-    --primary-foreground: 220 30% 5%;
-    --primary-glow: 195 100% 75%;
+    /* Bluish Green Primary (from LiteFold logo) */
+    --primary: 180 45% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 180 45% 55%;
 
-    /* Glass Secondary */
-    --secondary: 220 25% 12%;
-    --secondary-foreground: 220 15% 90%;
+    /* Khaki Yellow Secondary */
+    --secondary: 54 30% 85%;
+    --secondary-foreground: 0 0% 9%;
 
-    /* Muted Glass */
-    --muted: 220 20% 10%;
-    --muted-foreground: 220 10% 70%;
+    /* Muted */
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    /* Accent Colors for Drug Design */
-    --accent: 280 100% 70%;
-    --accent-foreground: 220 30% 5%;
-    --accent-glow: 280 100% 80%;
+    /* Violet Accent */
+    --accent: 270 75% 65%;
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 270 75% 75%;
 
     /* Destructive */
     --destructive: 0 84% 60%;
-    --destructive-foreground: 220 15% 95%;
+    --destructive-foreground: 0 0% 100%;
 
     /* Glass Borders */
-    --border: 220 20% 20%;
-    --input: 220 20% 15%;
-    --ring: 195 100% 65%;
+    --border: 0 0% 90%;
+    --input: 0 0% 96%;
+    --ring: 180 45% 45%;
 
     /* Glass Effects */
-    --glass-bg: 220 25% 8% / 0.7;
-    --glass-border: 220 20% 25% / 0.3;
-    --glass-highlight: 220 15% 95% / 0.1;
+    --glass-bg: 0 0% 100% / 0.8;
+    --glass-border: 0 0% 85% / 0.5;
+    --glass-highlight: 0 0% 100% / 0.9;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(195 100% 65%), hsl(280 100% 70%));
-    --gradient-glass: linear-gradient(135deg, hsl(220 25% 8% / 0.9), hsl(220 20% 12% / 0.8));
-    --gradient-hero: linear-gradient(135deg, hsl(220 30% 5%), hsl(220 25% 8%));
+    --gradient-primary: linear-gradient(135deg, hsl(180 45% 45%), hsl(270 75% 65%));
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.9), hsl(0 0% 98% / 0.8));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%), hsl(54 30% 95%));
 
     /* Shadows */
-    --shadow-glass: 0 8px 32px hsl(220 30% 5% / 0.3);
-    --shadow-glow: 0 0 40px hsl(195 100% 65% / 0.3);
-    --shadow-accent-glow: 0 0 40px hsl(280 100% 70% / 0.3);
+    --shadow-glass: 0 8px 32px hsl(0 0% 0% / 0.1);
+    --shadow-glow: 0 0 40px hsl(180 45% 45% / 0.3);
+    --shadow-accent-glow: 0 0 40px hsl(270 75% 65% / 0.3);
 
     --radius: 1rem;
 

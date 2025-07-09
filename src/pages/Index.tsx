@@ -3,9 +3,11 @@ import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import { Dna, Microscope, Zap, Target, ArrowRight, Sparkles } from "lucide-react";
 import proteinHero from "@/assets/protein-hero.jpg";
-import dnaStructure from "@/assets/dna-structure.jpg";
+import antibodyStructure from "@/assets/antibody-structure.jpg";
 import drugDocking from "@/assets/drug-docking.jpg";
 import proteinFolding from "@/assets/protein-folding.jpg";
+import enzymeActiveSite from "@/assets/enzyme-active-site.jpg";
+import quaternaryStructure from "@/assets/quaternary-structure.jpg";
 
 const Index = () => {
   return (
@@ -211,7 +213,7 @@ const Index = () => {
                 icon: Microscope,
                 title: "Structure Analysis",
                 description: "Comprehensive structural biology tools and visualization",
-                image: dnaStructure,
+                image: antibodyStructure,
                 delay: 1.3
               }
             ].map((feature) => (
