@@ -2,12 +2,6 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import { Dna, Microscope, Zap, Target, ArrowRight, Sparkles } from "lucide-react";
-import proteinHero from "@/assets/protein-hero.jpg";
-import antibodyStructure from "@/assets/antibody-structure.jpg";
-import drugDocking from "@/assets/drug-docking.jpg";
-import proteinFolding from "@/assets/protein-folding.jpg";
-import enzymeActiveSite from "@/assets/enzyme-active-site.jpg";
-import quaternaryStructure from "@/assets/quaternary-structure.jpg";
 
 const Index = () => {
   return (
@@ -158,7 +152,7 @@ const Index = () => {
           >
             <div className="glass-card glass-highlight overflow-hidden float">
               <img 
-                src={proteinHero}
+                src="/lovable-uploads/cf4fdaf2-cbd7-42fb-8790-0e583d7f887c.png"
                 alt="Protein Structure Visualization"
                 className="w-full h-full object-cover"
               />
@@ -199,21 +193,21 @@ const Index = () => {
                 icon: Dna,
                 title: "Protein Folding",
                 description: "Advanced AlphaFold integration for accurate structure prediction",
-                image: proteinFolding,
+                image: "/lovable-uploads/e0fa63b8-da64-4f27-a5c2-8277a5a3c0bf.png",
                 delay: 1.1
               },
               {
                 icon: Target,
                 title: "Drug Docking",
                 description: "Molecular docking simulations for drug-target interactions",
-                image: drugDocking,
+                image: "/lovable-uploads/56d5b619-4475-43ba-bd4b-3136fd8859cd.png",
                 delay: 1.2
               },
               {
                 icon: Microscope,
                 title: "Structure Analysis",
                 description: "Comprehensive structural biology tools and visualization",
-                image: antibodyStructure,
+                image: "/lovable-uploads/bad6ff4b-1f0a-414a-bbe8-4c0a0f5611a4.png",
                 delay: 1.3
               }
             ].map((feature) => (
