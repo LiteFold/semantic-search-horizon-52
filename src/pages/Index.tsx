@@ -27,7 +27,7 @@ const Index = () => {
       >
         <div className="glass-card glass-highlight p-4 flex flex-col sm:flex-row items-center gap-4 sm:gap-0 sm:justify-between">
           <motion.div 
-            className="flex items-center space-x-0 -mr-2"
+            className="flex items-center space-x-4"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -35,7 +35,7 @@ const Index = () => {
               src="/assets/logo.png" 
               alt="LiteFold Logo" 
               style={{ width: '80px', height: '80px', objectFit: 'contain' }} 
-              className="md:w-[120px] md:h-[120px] glow-primary"
+              className="md:w-[120px] md:h-[120px]"
             />
             <h1 className="font-instrument text-3xl md:text-5xl font-normal gradient-text">
               LiteFold
