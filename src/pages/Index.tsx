@@ -261,7 +261,7 @@ const Index = () => {
           </div>
 
           <motion.div
-            className="max-w-4xl mx-auto"
+            className="max-w-7xl mx-auto px-4 md:px-8"
             initial={{ opacity: 0, y: 30 }}
             animate={videoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ delay: 0.4 }}
