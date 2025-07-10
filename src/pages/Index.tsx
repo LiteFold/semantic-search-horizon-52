@@ -233,6 +233,91 @@ const Index = () => {
           </motion.div>
         </motion.div>
 
+        {/* Watch it in Action Section */}
+        <motion.section 
+          ref={videoRef}
+          className="mt-16 sm:mt-20 md:mt-24 lg:mt-32"
+          initial={{ opacity: 0 }}
+          animate={videoInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="text-center mb-12 sm:mb-16">
+            <motion.h2 
+              className="font-instrument text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal gradient-text mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={videoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: 0.2 }}
+            >
+              Watch it in Action
+            </motion.h2>
+            <motion.p 
+              className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0"
+              initial={{ opacity: 0, y: 20 }}
+              animate={videoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: 0.3 }}
+            >
+              See how LiteFold transforms protein research with AI-powered insights and intuitive workflows
+            </motion.p>
+          </div>
+
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={videoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ delay: 0.4 }}
+          >
+            <Dialog>
+              <DialogTrigger asChild>
+                <motion.div
+                  className="relative group cursor-pointer rounded-2xl overflow-hidden glass-card-primary interactive-card"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="relative aspect-video">
+                    <img
+                      src={videoThumbnail}
+                      alt="LiteFold Platform Demo"
+                      className="w-full h-full object-cover"
+                    />
+                    
+                    {/* Overlay with play button */}
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                      <motion.div
+                        className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full w-20 h-20 group-hover:bg-white/20 transition-colors duration-300 flex items-center justify-center"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <Play className="h-8 w-8 text-white fill-current ml-1" />
+                      </motion.div>
+                    </div>
+                    
+                    {/* Bottom gradient for text overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                      <h3 className="text-white text-xl font-semibold mb-2">Platform Demo</h3>
+                      <p className="text-white/90 text-sm">Discover the power of AI-driven protein research</p>
+                    </div>
+                  </div>
+                </motion.div>
+              </DialogTrigger>
+              
+              <DialogContent className="max-w-4xl w-[95vw] h-[95vh] max-h-[600px] p-0">
+                <div className="aspect-video w-full h-full">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="LiteFold Platform Demo"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="rounded-lg"
+                  ></iframe>
+                </div>
+              </DialogContent>
+            </Dialog>
+          </motion.div>
+        </motion.section>
+
         {/* Features Grid */}
         <motion.section 
           ref={featuresRef}
@@ -350,90 +435,6 @@ const Index = () => {
           </div>
         </motion.section>
 
-        {/* Watch it in Action Section */}
-        <motion.section 
-          ref={videoRef}
-          className="mt-16 sm:mt-20 md:mt-24 lg:mt-32"
-          initial={{ opacity: 0 }}
-          animate={videoInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="text-center mb-12 sm:mb-16">
-            <motion.h2 
-              className="font-instrument text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal gradient-text mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={videoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: 0.2 }}
-            >
-              Watch it in Action
-            </motion.h2>
-            <motion.p 
-              className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0"
-              initial={{ opacity: 0, y: 20 }}
-              animate={videoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: 0.3 }}
-            >
-              See how LiteFold transforms protein research with AI-powered insights and intuitive workflows
-            </motion.p>
-          </div>
-
-          <motion.div
-            className="max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={videoInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ delay: 0.4 }}
-          >
-            <Dialog>
-              <DialogTrigger asChild>
-                <motion.div
-                  className="relative group cursor-pointer rounded-2xl overflow-hidden glass-card-primary interactive-card"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="relative aspect-video">
-                    <img
-                      src={videoThumbnail}
-                      alt="LiteFold Platform Demo"
-                      className="w-full h-full object-cover"
-                    />
-                    
-                    {/* Overlay with play button */}
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                      <motion.div
-                        className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-full p-4 group-hover:bg-white/20 transition-colors duration-300"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <Play className="h-12 w-12 text-white fill-current" />
-                      </motion.div>
-                    </div>
-                    
-                    {/* Bottom gradient for text overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
-                      <h3 className="text-white text-xl font-semibold mb-2">Platform Demo</h3>
-                      <p className="text-white/90 text-sm">Discover the power of AI-driven protein research</p>
-                    </div>
-                  </div>
-                </motion.div>
-              </DialogTrigger>
-              
-              <DialogContent className="max-w-4xl w-[95vw] h-[95vh] max-h-[600px] p-0">
-                <div className="aspect-video w-full h-full">
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="LiteFold Platform Demo"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="rounded-lg"
-                  ></iframe>
-                </div>
-              </DialogContent>
-            </Dialog>
-          </motion.div>
-        </motion.section>
 
         {/* Research & Publications Section */}
         <motion.section 
