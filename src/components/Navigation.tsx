@@ -45,10 +45,10 @@ const Navigation = () => {
     <motion.header 
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="fixed top-4 left-0 right-0 z-50 flex justify-center"
+      className="fixed top-4 left-4 right-4 z-50"
     >
       <motion.nav 
-        className="glass-nav-container px-6 py-3 flex items-center justify-between w-full max-w-6xl mx-4"
+        className="glass-nav-container px-4 py-3 flex items-center justify-between w-full max-w-6xl mx-auto"
         animate={{
           backgroundColor: isScrolled 
             ? "rgba(255, 255, 255, 0.95)" 
@@ -62,7 +62,7 @@ const Navigation = () => {
       >
         {/* Logo Section */}
         <motion.div 
-          className="flex items-center space-x-4"
+          className="flex items-center space-x-3"
           whileHover={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
@@ -129,7 +129,7 @@ const Navigation = () => {
 
         {/* Mobile Menu Button */}
         <motion.button
-          className="lg:hidden flex items-center justify-center w-10 h-10 glass-button rounded-full"
+          className="lg:hidden flex items-center justify-center w-8 h-8 glass-button rounded-full"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           whileTap={{ scale: 0.95 }}
         >
@@ -138,9 +138,9 @@ const Navigation = () => {
             transition={{ duration: 0.3 }}
           >
             {isMenuOpen ? (
-              <X className="h-5 w-5 text-gray-700" />
+              <X className="h-4 w-4 text-gray-700" />
             ) : (
-              <Menu className="h-5 w-5 text-gray-700" />
+              <Menu className="h-4 w-4 text-gray-700" />
             )}
           </motion.div>
         </motion.button>
@@ -159,14 +159,14 @@ const Navigation = () => {
           isMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'
         }`}
       >
-        <div className="p-6 space-y-4">
+        <div className="p-4 space-y-3">
           {navItems.map((item, index) => (
             <motion.a
               key={item.name}
               href={item.href}
               target={item.external ? "_blank" : "_self"}
               rel={item.external ? "noopener noreferrer" : undefined}
-              className="block text-gray-700 hover:text-gray-900 transition-colors duration-300 font-medium text-base py-2 px-4 rounded-lg hover:bg-gray-100/50"
+              className="block text-gray-700 hover:text-gray-900 transition-colors duration-300 font-medium text-sm py-2 px-3 rounded-lg hover:bg-gray-100/50"
               initial={{ opacity: 0, x: -20 }}
               animate={{ 
                 opacity: isMenuOpen ? 1 : 0,
@@ -185,17 +185,17 @@ const Navigation = () => {
               x: isMenuOpen ? 0 : -20
             }}
             transition={{ delay: navItems.length * 0.1 }}
-            className="pt-4 border-t border-gray-200"
+            className="pt-3 border-t border-gray-200"
           >
             <Button 
               variant="outline"
-              className="w-full glass-button border-gray-300 text-gray-700 hover:text-gray-900 hover:border-gray-400 flex items-center justify-center gap-2 text-base px-6 py-3 rounded-full"
+              className="w-full glass-button border-gray-300 text-gray-700 hover:text-gray-900 hover:border-gray-400 flex items-center justify-center gap-2 text-sm px-4 py-2 rounded-full"
               onClick={() => {
                 window.open("https://github.com/Anindyadeep/litefold", "_blank");
                 setIsMenuOpen(false);
               }}
             >
-              <FaGithub className="h-5 w-5" />
+              <FaGithub className="h-4 w-4" />
               Star on GitHub
             </Button>
           </motion.div>

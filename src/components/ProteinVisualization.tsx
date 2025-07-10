@@ -197,8 +197,8 @@ const ProteinVisualization = React.memo(({
       const startRotation = () => {
         const rotate = () => {
           if (viewerRef.current) {
-            viewerRef.current.rotate(0.5, 'y');
-            viewerRef.current.rotate(0.25, 'x');
+            viewerRef.current.rotate(0.15, 'y');
+            viewerRef.current.rotate(0.08, 'x');
             animationRef.current = requestAnimationFrame(rotate);
           }
         };
@@ -229,8 +229,8 @@ const ProteinVisualization = React.memo(({
       } else if (!document.hidden && viewerRef.current && !animationRef.current) {
         const rotate = () => {
           if (viewerRef.current) {
-            viewerRef.current.rotate(0.5, 'y');
-            viewerRef.current.rotate(0.25, 'x');
+            viewerRef.current.rotate(0.15, 'y');
+            viewerRef.current.rotate(0.08, 'x');
             animationRef.current = requestAnimationFrame(rotate);
           }
         };
@@ -244,14 +244,16 @@ const ProteinVisualization = React.memo(({
 
   if (error) {
     return (
-      <div className={`bg-white rounded-xl border border-gray-200 p-6 ${className}`}>
-        <div className="flex items-center justify-center h-64">
-          <div className="text-center">
-            <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-red-100 flex items-center justify-center">
-              <span className="text-red-600 font-bold">!</span>
+      <div className={`relative group ${className}`}>
+        <div className="relative bg-gradient-to-br from-gray-50/40 via-white/30 to-gray-100/20 rounded-3xl border border-gray-200/30 backdrop-blur-lg overflow-hidden">
+          <div className="flex items-center justify-center h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] p-4 sm:p-6">
+            <div className="text-center">
+              <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-red-100/80 backdrop-blur-sm flex items-center justify-center border border-red-200/50">
+                <span className="text-red-600 font-bold">!</span>
+              </div>
+              <p className="text-sm text-gray-600 font-medium">Failed to load protein</p>
+              <p className="text-xs text-gray-500 mt-1">{error}</p>
             </div>
-            <p className="text-sm text-gray-600 font-medium">Failed to load protein</p>
-            <p className="text-xs text-gray-500 mt-1">{error}</p>
           </div>
         </div>
       </div>
@@ -259,23 +261,76 @@ const ProteinVisualization = React.memo(({
   }
 
   return (
-    <div className={`bg-white rounded-xl border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden ${className}`}>
-      <div className="relative h-96 md:h-[500px] lg:h-[600px]">
-        {isLoading && (
-          <div className="absolute inset-0 bg-white flex items-center justify-center z-10">
-            <div className="text-center">
-              <div className="w-8 h-8 mx-auto mb-2 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-              <p className="text-sm text-gray-600">Loading protein structure...</p>
-            </div>
-          </div>
-        )}
-        
-        <div 
-          ref={containerRef}
-          className="w-full h-full"
-          style={{ minHeight: '400px' }}
-        />
+    <div className={`relative group ${className}`}>
+      {/* Floating particles around the bubble */}
+      <div className="absolute -inset-4 sm:-inset-8 pointer-events-none">
+        <div className="absolute top-2 sm:top-4 left-4 sm:left-8 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-primary/30 rounded-full animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }}></div>
+        <div className="absolute top-8 sm:top-16 right-6 sm:right-12 w-1 sm:w-1.5 h-1 sm:h-1.5 bg-accent/40 rounded-full animate-bounce" style={{ animationDelay: '1s', animationDuration: '4s' }}></div>
+        <div className="absolute bottom-10 sm:bottom-20 left-2 sm:left-4 w-1 h-1 bg-primary/20 rounded-full animate-bounce" style={{ animationDelay: '2s', animationDuration: '5s' }}></div>
+        <div className="absolute bottom-4 sm:bottom-8 right-3 sm:right-6 w-2 sm:w-2.5 h-2 sm:h-2.5 bg-accent/25 rounded-full animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '3.5s' }}></div>
+        <div className="absolute top-1/3 left-1 sm:left-2 w-1 sm:w-1.5 h-1 sm:h-1.5 bg-primary/35 rounded-full animate-bounce" style={{ animationDelay: '1.5s', animationDuration: '4.5s' }}></div>
+        <div className="absolute top-2/3 right-1 sm:right-2 w-1 h-1 bg-accent/30 rounded-full animate-bounce" style={{ animationDelay: '2.5s', animationDuration: '3.8s' }}></div>
       </div>
+
+      {/* Main container */}
+      <div 
+        className="relative bg-gradient-to-br from-gray-50/40 via-white/30 to-gray-100/20 border border-gray-200/30 backdrop-blur-lg overflow-hidden group-hover:scale-102 transition-all duration-500 ease-out"
+        style={{
+          borderRadius: '45% 55% 52% 48% / 53% 47% 58% 42%'
+        }}
+      >
+        {/* Subtle inner glow effect */}
+        <div 
+          className="absolute inset-2 bg-gradient-to-br from-white/20 to-transparent pointer-events-none"
+          style={{
+            borderRadius: '42% 58% 49% 51% / 56% 44% 61% 39%'
+          }}
+        ></div>
+        
+        <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] p-3 sm:p-4">
+          {isLoading && (
+            <div 
+              className="absolute inset-0 bg-white/20 backdrop-blur-sm flex items-center justify-center z-10"
+              style={{
+                borderRadius: '42% 58% 49% 51% / 56% 44% 61% 39%'
+              }}
+            >
+              <div className="text-center">
+                <div className="w-8 h-8 mx-auto mb-2 border-2 border-primary/60 border-t-transparent rounded-full animate-spin"></div>
+                <p className="text-sm text-gray-600 font-medium">Loading protein structure...</p>
+              </div>
+            </div>
+          )}
+          
+          {/* Protein viewer container */}
+          <div 
+            ref={containerRef}
+            className="w-full h-full overflow-hidden relative"
+            style={{ 
+              minHeight: '200px',
+              borderRadius: '40% 60% 47% 53% / 54% 46% 59% 41%'
+            }}
+          />
+          
+          {/* Subtle highlight overlay */}
+          <div 
+            className="absolute top-4 left-4 w-16 h-16 bg-white/10 blur-xl pointer-events-none"
+            style={{
+              borderRadius: '35% 65% 42% 58% / 48% 52% 63% 37%'
+            }}
+          ></div>
+        </div>
+        
+        {/* Bottom info label */}
+        <div className="absolute bottom-2 sm:bottom-3 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm px-2 sm:px-3 py-1 rounded-full border border-gray-200/50">
+          <p className="text-xs text-gray-600 font-medium">
+            {dataSource.pdbId?.toUpperCase() || 'Protein Structure'}
+          </p>
+        </div>
+      </div>
+      
+      {/* Subtle reflection effect */}
+      <div className="absolute top-4 left-4 w-1/4 h-1/4 bg-white/5 rounded-2xl blur-2xl pointer-events-none opacity-40"></div>
     </div>
   );
 });
